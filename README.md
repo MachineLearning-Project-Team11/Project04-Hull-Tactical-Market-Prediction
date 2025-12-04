@@ -29,11 +29,11 @@ The dataset is provided by the Kaggle competition. It includes historical market
 
 The project is organized into sequential steps corresponding to the assignment requirements:
 
-*   **`step1.py` (Baseline Model)**:
+*   **`step1.ipynb` (Baseline Model)**:
     *   Implements a simple baseline model (e.g., Regression or Momentum).
     *   Verifies the submission pipeline and metric calculation.
 
-*   **`step2.py` (Model Development)**:
+*   **`step2.ipynb` (Model Development)**:
     *   Explores Machine Learning algorithms (Random Forest).
     *   Implements Time-Series Cross-Validation.
     *   Focuses on predicting daily allocation weights.
@@ -59,16 +59,20 @@ The project is organized into sequential steps corresponding to the assignment r
     *   **Cross-Market Extension**: Applies the developed pipeline to the NASDAQ market.
     *   Demonstrates the robustness and transferability of the strategy.
 
+*   **`dataset_crawler.py` (NASDAQ Data Builder)**:
+    *   Downloads NASDAQ Composite and macro/ETF signals from Yahoo Finance.
+    *   Converts price-based series into returns, engineers 50+ technical/macro features, and exports `nasdaq_new.csv` for the bonus analysis.
+
 ## Usage
 
 1.  **Setup**: Download the dataset from Kaggle and place it in the appropriate directory (e.g., `./` or `/kaggle/input/hull-tactical-market-prediction`).
-2.  **Run Baseline**:
+2.  **Run Baseline**: Open `step1.ipynb` in Jupyter/VS Code and execute all cells (or run it headlessly):
     ```bash
-    python step1.py
+    jupyter nbconvert --to notebook --execute step1.ipynb
     ```
-3.  **Run ML Model**:
+3.  **Run ML Model**: Open `step2.ipynb` and execute all cells (or run headlessly):
     ```bash
-    python step2.py
+    jupyter nbconvert --to notebook --execute step2.ipynb
     ```
 4.  **Explore & Train**: Open `step3.ipynb`, `step4.ipynb`, or `step5.ipynb` in Jupyter Notebook or VS Code to run the interactive analysis and training loops.
 5.  **Final Inference**: `step5.ipynb` contains the final `predict` function and inference loop for generating the submission file.
